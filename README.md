@@ -35,3 +35,7 @@ The main features of the application are:
 
   1.0.0.0
 
+
+  ## Authors
+
+  * **Rennê Rhudson Lourenço** 
