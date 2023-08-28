@@ -17,10 +17,19 @@ const showCityCard = () => {
 
 const addTextContent = (container, content) => container.textContent = content
 
-const showCityWeatherInfo = async CityName => {
+const fetchCityWeatherInfo = async (CityName) => {
 
     const [{ Key, LocalizedName }] = await getCityData(CityName)
     const [{WeatherText, Temperature, IsDayTime, WeatherIcon }] = await getCityWeather(Key)
+
+    return { LocalizedName, WeatherText, Temperature, IsDayTime, WeatherIcon }
+}
+
+
+const showCityWeatherInfo = async CityName => {
+
+    await fetchCityWeatherInfo(CityName)
+
     const timeIcon = `<img src="/src/icons/${WeatherIcon}.svg"/>`
     
     IsDayTime ? timeImg.src = '/src/day.svg' :  timeImg.src = '/src/night.svg'
